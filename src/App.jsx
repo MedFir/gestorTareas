@@ -1,78 +1,45 @@
-import Listado from './componentes/Listado.jsx';
-import Formulario from './componentes/Formulario.jsx';
-import './App.css';
-import { useState } from 'react';
-const personasDefault = [ 
-  { 
+import Listado from "./componentes/Listado.jsx";
+import CrearTarea from "./componentes/CrearTarea.jsx";
+import "./App.css";
+import { useState } from "react";
+const tareasDefault = [
+  {
     id: 1,
-    documento: '11182998',
-    nombres: 'Thiago',
-    apellidos: 'Aguero',
-    alumno: true,
-    curso: '7',
-    divicion: '2'
+    titulo: "Prueba 17/02",
+    info: "Estudiar matematicas",
+    tipoUrgencia: "Aguero",
+    categoria: "",
+    estado: "pendiente?",
   },
-  {
-    id: 2,
-    documento: '48354503',
-    nombres: 'Kevin',
-    apellidos: 'Ariaudo',
-    alumno: true,
-    curso: '7',
-    divicion: '2'
-  },
-  {
-    id: 3,
-    documento: '2214112',
-    nombres: 'Ezequiel',
-    apellidos: 'Suarez',
-    alumno: false,
-    curso: '7',
-    divicion: '2'
-  },
-  
-]
+];
 
-export default function App (){
+export default function App() {
+  const [tareas, setTareas] = useState(tareasDefault);
+  const guardar = (tarea) => {
+    console.log(tarea);
 
-  const [personas, setPersonas] = useState(personasDefault)
-  const guardar = (persona) => {
-    console.log(persona)
-    
-    let nuevasPersonas = [...personas];
-    nuevasPersonas.push(persona);
-    setPersonas(nuevasPersonas);
-  }
+    let nuevasTareas = [...tareas];
+    nuevasTareas.push(tarea);
+    setTareas(nuevasTareas);
+  };
 
-  const eliminar = (persona_id) => {
-    const nuevasPersonas = personas.filter((persona) =>
-      persona.id != persona_id
-    );
-    console.log(nuevasPersonas)
-    setPersonas(nuevasPersonas)
-  }
-  
+  const eliminar = (tarea_id) => {
+    const nuevasTareas = tareas.filter((tareas) => tareas.id != tarea_id);
+    console.log(nuevasTareas);
+    setTareas(nuevasTareas);
+  };
+
   return (
-    <div className='App'>
-      
+    <div className="App">
       <header>
-      <h1>Tareas by MedFir</h1>
+        <h1>Tareas by MedFir</h1>
       </header>
-      
+
       <div className="contenedor">
-        
-        <Formulario 
-          guardar={(persona) => guardar(persona)}
-        />
-        
-        <Listado
-          personas={personas}
-          eliminar={(persona_id)=> eliminar(persona_id)}
-        />
-        
+        <CrearTarea guardar={(tarea) => guardar(tarea)} />
+
+        <Listado tareas={tareas} eliminar={(tarea_id) => eliminar(tarea_id)} />
       </div>
-      
     </div>
-  )
-  
+  );
 }

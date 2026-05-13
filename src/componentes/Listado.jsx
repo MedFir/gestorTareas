@@ -1,21 +1,20 @@
 import Tarjeta from './Tarjeta';
-export default function Listado ({personas, eliminar}){
+export default function Listado ({tareas, eliminar}){
   
   return (
     <div className="listadoTodo"> 
       <p className='subtitulo'>Tareas:</p>
       <div className="listado">
         {
-          personas.map((persona) =>
+          tareas.map((tarea) =>
             <Tarjeta
-              key={persona.id}
-              documento={persona.documento}
-              apellidos={persona.apellidos}
-              nombres={persona.nombres}
-              alumno={persona.alumno}
-              curso={persona.curso}
-              divicion={persona.divicion}
-              eliminar={() => eliminar(persona.id)}
+              key={tarea.id}
+              titulo={tarea.titulo}
+              info={tarea.info}
+              tipoUrgencia={tarea.tipoUrgencia}
+              categoria={tarea.categoria}
+              estado={tarea.estado}
+              eliminar={() => eliminar(tarea.id)}
             />
         )}
       </div>
