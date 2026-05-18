@@ -2,14 +2,15 @@ import Listado from "./componentes/Listado.jsx";
 import CrearTarea from "./componentes/CrearTarea.jsx";
 import "./App.css";
 import { useState } from "react";
+import useToggle from './hooks/useToggle';
 const tareasDefault = [
   {
     id: 1,
-    titulo: "Prueba 17/02",
-    info: "Estudiar matematicas",
-    tipoUrgencia: "Aguero",
-    categoria: "",
-    estado: "pendiente?",
+    titulo: "Titulo",
+    info: "info",
+    tipoUrgencia: "1",
+    categoria: "categoria",
+    estado: "2",
   },
 ];
 
@@ -17,7 +18,6 @@ export default function App() {
   const [tareas, setTareas] = useState(tareasDefault);
   const guardar = (tarea) => {
     console.log(tarea);
-
     let nuevasTareas = [...tareas];
     nuevasTareas.push(tarea);
     setTareas(nuevasTareas);
@@ -28,7 +28,7 @@ export default function App() {
     console.log(nuevasTareas);
     setTareas(nuevasTareas);
   };
-
+  
   return (
     <div className="App">
       <header>

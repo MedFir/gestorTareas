@@ -7,7 +7,18 @@ export default function CrearTarea({ guardar }) {
     e.preventDefault();
 
     const id = (new Date()).getTime();
-    const estado = "pendiente";
+
+    //tipoUrgencia:
+    //  "1" = No urgente.
+    //  "2" = Urgente.
+    //  "3" = Muy urgente.
+
+    //estado:
+    // "1" = "Pendente" default
+    // "2" = "En proceso"
+    // "3" = "Finalizado"
+
+    const estado = "1";
     guardar({ ...tarea, estado, id });
     
   };
