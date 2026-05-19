@@ -1,4 +1,4 @@
-.App{
+.App {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -6,35 +6,36 @@
     color: #d3dfdf;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
-} 
-.contenedor{
-    display:flex;
+}
+.contenedor {
+    display: flex;
     flex-direction: row;
     flex: 1;
 }
-.subtitulo{
+.subtitulo {
     font-size: 25px;
     margin: 20px;
 }
 
-
-.formulario{
+.formulario {
     display: flex;
-    background-color:   #1b363c;
+    background-color: #1b363c;
     margin-right: 15px;
     padding: 15px 20px;
     border-radius: 25px;
     flex-direction: column;
     height: 350px;
 }
-.formulario form{
+.formulario form {
     width: 100%;
     max-height: 100%;
     display: grid;
-    grid-template-columns:repeat(2, 1fr);
-    flex-direction: column; 
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
 }
-.formulario input, select, button {
+.formulario input,
+select,
+button {
     margin: 10px 5px;
     background-color: #214d55;
     color: #d3dfdf;
@@ -43,37 +44,38 @@
     width: 200px;
     height: 50px;
     border: 2px solid;
-    transition:200ms;
+    transition: 200ms;
 }
-input::placeholder{
+input::placeholder {
     color: #d3dfdf5b;
 }
-.formulario label{
+.formulario label {
     color: #d3dfdf;
     font-size: 20px;
 }
-.inputDiv{
+.inputDiv {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
 }
-.formulario button:hover,.formulario input:hover,.formulario select:hover{
+.formulario button:hover,
+.formulario input:hover,
+.formulario select:hover {
     scale: 1.05;
 }
-.formulario button:hover{
+.formulario button:hover {
     background-color: #94a6ac;
     cursor: pointer;
 }
 
-
-.listadoTodo{
+.listadoTodo {
     background-color: #1b363c;
     border-radius: 25px;
-    flex: 3
+    flex: 3;
 }
-.listado{
+.listado {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -81,13 +83,10 @@ input::placeholder{
     align-items: center;
 }
 
-
-
-
-.tarjeta:hover{
+.tarjeta:hover {
     scale: 1.05;
 }
-.tarjeta{
+.tarjeta {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,16 +99,17 @@ input::placeholder{
     width: 310px;
     height: 230px;
 }
-.tareaTitulo{
+.tareaTitulo {
     padding: 10px 0px;
     width: 100%;
     height: 20%;
     font-size: 30px;
 }
-.tareaTitulo p,.tareaInfo p{
+.tareaTitulo p,
+.tareaInfo p {
     margin-left: 10px;
 }
-.tareaInfo{
+.tareaInfo {
     background-color: #214d55;
     width: 100%;
     height: 60%;
@@ -117,14 +117,15 @@ input::placeholder{
     flex-direction: column;
     font-size: 20px;
 }
-.tareaBotones{
+.tareaBotones {
     width: 100%;
     height: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.tareaBotonDetalles,.tareaBotonEliminar{
+.tareaBotonDetalles,
+.tareaBotonEliminar {
     width: 50%;
     height: 100%;
     margin: 0px;
@@ -134,19 +135,21 @@ input::placeholder{
     cursor: pointer;
     transition: 200ms;
 }
-.tareaBotonDetalles{
+.tareaBotonDetalles {
     background-color: #003797;
     border-bottom-left-radius: 25px;
 }
-.tareaBotonEliminar{
+.tareaBotonEliminar {
     background-color: #b40000;
     border-bottom-right-radius: 25px;
 }
-.tareaBotonDetalles:hover,.tareaBotonEliminar:hover{
+.tareaBotonDetalles:hover,
+.tareaBotonEliminar:hover {
     opacity: 50%;
 }
 
-.modalDetalles{
+.modalDetalles {
+    display: block;
     background-color: #132335;
     border: 5px solid #94a6ac;
     border-radius: 25px;
@@ -158,7 +161,7 @@ input::placeholder{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.navDetalles{
+.navDetalles {
     border-bottom: #94a6ac 5px solid;
     max-width: 100%;
     max-height: 10%;
@@ -167,26 +170,26 @@ input::placeholder{
     justify-content: space-between;
     align-items: center;
 }
-.mainDetalles{
+.mainDetalles {
     max-width: 100%;
     height: 100%;
     padding: 15px 10px;
 }
-.cerrarDetalles{
+.cerrarDetalles {
     width: 40px;
     height: 40px;
     margin: 0px;
     background-color: red;
     cursor: pointer;
 }
-.cerrarDetalles:hover{
+.cerrarDetalles:hover {
     opacity: 50%;
 }
-.cabezeraDetalles{
+.cabezeraDetalles {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.linea{
+.linea {
     margin: 20px 0px;
 }
