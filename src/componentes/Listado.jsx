@@ -14,6 +14,7 @@ export default function Listado ({tareas, eliminar}){
               tipoUrgencia={tarea.tipoUrgencia}
               categoria={tarea.categoria}
               estado={tarea.estado}
+              id={tarea.id}
               eliminar={() => eliminar(tarea.id)}
             />
         )}

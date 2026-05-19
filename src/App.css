@@ -2,8 +2,8 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    background-color: #391607;
-    color: #eac94c;
+    background-color: #132335;
+    color: #d3dfdf;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 20px;
 } 
@@ -20,12 +20,12 @@
 
 .formulario{
     display: flex;
-    background-color:   #5e3413;
+    background-color:   #1b363c;
     margin-right: 15px;
     padding: 15px 20px;
     border-radius: 25px;
     flex-direction: column;
-    height: 470px;
+    height: 350px;
 }
 .formulario form{
     width: 100%;
@@ -36,8 +36,8 @@
 }
 .formulario input, select, button {
     margin: 10px 5px;
-    background-color: #8d5c24;
-    color: #eac94c;
+    background-color: #214d55;
+    color: #d3dfdf;
     font-size: 20px;
     border-radius: 10px;
     width: 200px;
@@ -46,10 +46,10 @@
     transition:200ms;
 }
 input::placeholder{
-    color: #ca8d3a;
+    color: #d3dfdf5b;
 }
 .formulario label{
-    color: #eac94c;
+    color: #d3dfdf;
     font-size: 20px;
 }
 .inputDiv{
@@ -63,13 +63,13 @@ input::placeholder{
     scale: 1.05;
 }
 .formulario button:hover{
-    background-color: #ca8d3a;
+    background-color: #94a6ac;
     cursor: pointer;
 }
 
 
 .listadoTodo{
-    background-color: #5e3413;
+    background-color: #1b363c;
     border-radius: 25px;
     flex: 3
 }
@@ -92,6 +92,8 @@ input::placeholder{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #214d55;
+    color: #d3dfdf;
     margin: 20px;
     border-radius: 25px;
     transition: 200ms;
@@ -108,16 +110,16 @@ input::placeholder{
     margin-left: 10px;
 }
 .tareaInfo{
-    background-color: #8d5c24;
+    background-color: #214d55;
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     font-size: 20px;
 }
 .tareaBotones{
     width: 100%;
-    height: 30%;
+    height: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,19 +129,64 @@ input::placeholder{
     height: 100%;
     margin: 0px;
     border-radius: 0px;
-    font-size: 25px;
-    border: 1px solid #5e3413;
+    font-size: 22px;
+    border: 0;
     cursor: pointer;
     transition: 200ms;
 }
 .tareaBotonDetalles{
-    background-color: rgb(0, 55, 151);
+    background-color: #003797;
     border-bottom-left-radius: 25px;
 }
 .tareaBotonEliminar{
-    background-color: rgb(180, 0, 0);
+    background-color: #b40000;
     border-bottom-right-radius: 25px;
 }
 .tareaBotonDetalles:hover,.tareaBotonEliminar:hover{
     opacity: 50%;
+}
+
+.modalDetalles{
+    background-color: #132335;
+    border: 5px solid #94a6ac;
+    border-radius: 25px;
+    color: white;
+    width: 400px;
+    min-height: 150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.navDetalles{
+    border-bottom: #94a6ac 5px solid;
+    max-width: 100%;
+    max-height: 10%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mainDetalles{
+    max-width: 100%;
+    height: 100%;
+    padding: 15px 10px;
+}
+.cerrarDetalles{
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    background-color: red;
+    cursor: pointer;
+}
+.cerrarDetalles:hover{
+    opacity: 50%;
+}
+.cabezeraDetalles{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.linea{
+    margin: 20px 0px;
 }

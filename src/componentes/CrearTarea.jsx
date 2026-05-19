@@ -44,7 +44,8 @@ export default function CrearTarea({ guardar }) {
           <label>Descripcion</label>
           <input
             type="text"
-            placeholder="ej: Debo $1500"
+            placeholder="máx. 600 caracteres"
+            maxlength="600"
             onChange={(e) => setDatoTarea("info", e.target.value)}
             value={tarea.info}
             required

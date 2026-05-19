@@ -1,6 +1,6 @@
 
 
-export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, eliminar}) {
+export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, eliminar, id}) {
   const color = false;
 
   if (tipoUrgencia == "1"){
@@ -22,13 +22,9 @@ export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, 
   }else{estado = "ERROR";}
 
   return ( 
-    <div 
-      className="tarjeta"
-      style={{
-        backgroundColor: color ? "#8d5c24" : "#8d5c24",
-        color: color ? "#eac94c" : "#eac94c"
-      }}
-    >
+    <>
+
+    <div className="tarjeta">
       <div className="tareaTitulo">
         <p>{titulo}</p>
       </div>
@@ -41,7 +37,26 @@ export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, 
         <button className="tareaBotonDetalles">Detalles</button>
         <button onClick={() => eliminar()} className="tareaBotonEliminar">Eliminar</button>
       </div>
-      
     </div>
+
+    <div className="modalDetalles">
+      <div className="navDetalles">
+          <p>{titulo}</p>
+          <button className="cerrarDetalles">x</button>
+      </div>
+      <div className="mainDetalles">
+          <div className="cabezeraDetalles">
+            <p>{tipoUrgencia}</p>
+            <p>{estado}</p>
+            <p>{categoria}</p>
+          </div>
+          <hr className="linea"></hr>
+          <div>
+            <p>{info}</p>
+          </div>
+      </div>
+    </div>
+
+    </>
   )
 }
