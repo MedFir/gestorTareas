@@ -1,8 +1,8 @@
+import useToggle from '../hooks/useToggle.jsx';
+export default function Tarjeta({ titulo, info, tipoUrgencia, categoria, estado, eliminar, id }) {
 
-
-export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, eliminar, id}) {
-  const color = false;
-
+  const [estadoModal, mostrarModal] = useToggle();
+  
   if (tipoUrgencia == "1"){
     tipoUrgencia = "No urgente";
   }else if (tipoUrgencia == "2"){
@@ -34,28 +34,36 @@ export default function Tarjeta({titulo, info, tipoUrgencia, categoria, estado, 
         <p>{categoria}</p>
       </div>
       <div className="tareaBotones">
-        <button className="tareaBotonDetalles">Detalles</button>
+        <button onClick={mostrarModal} className="tareaBotonDetalles">Detalles</button>
         <button onClick={() => eliminar()} className="tareaBotonEliminar">Eliminar</button>
       </div>
-    </div>
+      </div>
 
-    <div className="modalDetalles">
-      <div className="navDetalles">
+      
+      <div className='fondoDetalles' style={{ display: estadoModal ? 'block' : 'none' }}></div>
+      <div
+        id='{id}'
+        className="modalDetalles"
+        style={{ display: estadoModal ? 'block' : 'none' }}
+      >
+        
+        <div className="navDetalles">
           <p>{titulo}</p>
-          <button className="cerrarDetalles">x</button>
+          <button onClick={mostrarModal} className="cerrarDetalles">x</button>
+        </div>
+        
+        <div className="mainDetalles">
+            <div className="cabezeraDetalles">
+              <p>{tipoUrgencia}</p>
+              <p>{estado}</p>
+              <p>{categoria}</p>
+            </div>
+            <hr className="linea"></hr>
+            <div>
+              <p>{info}</p>
+            </div>
+        </div>
       </div>
-      <div className="mainDetalles">
-          <div className="cabezeraDetalles">
-            <p>{tipoUrgencia}</p>
-            <p>{estado}</p>
-            <p>{categoria}</p>
-          </div>
-          <hr className="linea"></hr>
-          <div>
-            <p>{info}</p>
-          </div>
-      </div>
-    </div>
 
     </>
   )

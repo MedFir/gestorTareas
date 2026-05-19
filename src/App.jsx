@@ -2,7 +2,6 @@ import Listado from "./componentes/Listado.jsx";
 import CrearTarea from "./componentes/CrearTarea.jsx";
 import "./App.css";
 import { useState } from "react";
-import useToggle from './hooks/useToggle';
 const tareasDefault = [
   {
     id: 1,
@@ -37,7 +36,7 @@ export default function App() {
 
       <div className="contenedor">
         <CrearTarea guardar={(tarea) => guardar(tarea)} />
-
+          
         <Listado tareas={tareas} eliminar={(tarea_id) => eliminar(tarea_id)} />
       </div>
     </div>
