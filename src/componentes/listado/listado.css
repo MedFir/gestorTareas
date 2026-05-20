@@ -1,0 +1,16 @@
+.subtitulo {
+    font-size: 25px;
+    margin: 20px;
+}
+.listadoTodo {
+    background-color: #1b363c;
+    border-radius: 25px;
+    flex: 3;
+}
+.listado {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}

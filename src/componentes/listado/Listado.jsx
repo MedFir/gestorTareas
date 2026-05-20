@@ -1,4 +1,5 @@
-import Tarjeta from './Tarjeta';
+import Tarjeta from '../tarjeta/Tarjeta';
+import "./listado.css";
 export default function Listado ({tareas, eliminar}){
   
   return (
@@ -7,7 +8,7 @@ export default function Listado ({tareas, eliminar}){
       <div className="listado">
         {
           tareas.map((tarea) =>
-            <Tarjeta
+            <Tarjeta 
               key={tarea.id}
               titulo={tarea.titulo}
               info={tarea.info}

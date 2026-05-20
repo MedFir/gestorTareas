@@ -1,4 +1,5 @@
-import useToggle from '../hooks/useToggle.jsx';
+import useToggle from '../../hooks/useToggle.jsx';
+import "./tarjeta.css";
 export default function Tarjeta({ titulo, info, tipoUrgencia, categoria, estado, eliminar, id }) {
 
   const [estadoModal, mostrarModal] = useToggle();

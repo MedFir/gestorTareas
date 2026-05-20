@@ -1,5 +1,5 @@
-import Listado from "./componentes/Listado.jsx";
-import CrearTarea from "./componentes/CrearTarea.jsx";
+import Listado from "./componentes/listado/Listado.jsx";
+import CrearTarea from "./componentes/crearTarea/CrearTarea.jsx";
 import "./App.css";
 import { useState } from "react";
 const tareasDefault = [

@@ -1,4 +1,5 @@
-import useTareas from "../hooks/useTareas";
+import useTareas from "../../hooks/useTareas";
+import "./crearTarea.css";
 export default function CrearTarea({ guardar }) {
   
   const [tarea, setDatoTarea] = useTareas();
