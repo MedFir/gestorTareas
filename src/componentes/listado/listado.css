@@ -6,6 +6,7 @@
     background-color: #1b363c;
     border-radius: 25px;
     flex: 3;
+    box-shadow: 0px 0px 25px #0F0F0F;
 }
 .listado {
     flex: 1;

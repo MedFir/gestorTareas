@@ -6,6 +6,8 @@
     border-radius: 25px;
     flex-direction: column;
     height: 350px;
+    box-shadow: 0px 0px 25px #0F0F0F;
+
 }
 .formulario form {
     width: 100%;
@@ -26,6 +28,8 @@ button {
     height: 50px;
     border: 2px solid;
     transition: 200ms;
+    box-shadow: 0px 0px 25px #0F0F0F;
+
 }
 input::placeholder {
     color: #d3dfdf5b;

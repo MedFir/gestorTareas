@@ -11,7 +11,9 @@ Requerimientos:
 -Animaciones al abrir y cerrar modales.
 -Convertir input de Descripción en textarea y reacomodar formulario.
 -filtros segun categoria
--filtros segun 
+-ordenar segun prioridad
+-guardar local storage
+-eliminar tareas default (hardcodeada, "tareasDefault[]")
 
 Bugs:
 -limitar titulo y descripción.
@@ -21,3 +23,11 @@ Bugs:
 detalles:
 -cambiar color de botón submit.
 -cambiar icono de cerrar modal. ( mejorar )
+.usar numeros en useTarea
+
+
+Consigna:
+Diseñar y desarrollar una APP web con react en la que el usuario pueda registrar "tareas", sus prioridades y categorias.
+Las tareas deben mostrarse ordenadas por su prioridad y se deben poder filtrar por categoria.
+Las tareas deben poder cambiar de estado entre "pendiente" (estado inicial), "en proceso" y "finalizada". Tambien se debe poder eliminar.
+El diseño debe poder contemplar los componentes y las props heredadas entre si.
