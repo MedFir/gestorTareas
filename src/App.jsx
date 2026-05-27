@@ -1,5 +1,6 @@
 import Listado from "./componentes/listado/Listado.jsx";
 import CrearTarea from "./componentes/crearTarea/CrearTarea.jsx";
+import Botonera from "./componentes/botonera/Botonera.jsx";
 import "./App.css";
 import { useState } from "react";
 
@@ -33,6 +34,7 @@ export default function App() {
       <header>
         <h1>Tareas by MedFir</h1>
       </header>
+      <Botonera/>
 
       <div className="contenedor">
         <CrearTarea guardar={(tarea) => guardar(tarea)} />
