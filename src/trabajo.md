@@ -11,7 +11,7 @@ Requerimientos:
 -Animaciones al abrir y cerrar modales.
 -Convertir input de Descripción en textarea y reacomodar formulario.
 -filtros segun categoria
--filtros segun 
+-ventana de confirmacion de eliminacion.
 
 Bugs:
 -limitar titulo y descripción.
