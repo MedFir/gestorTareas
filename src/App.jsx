@@ -48,6 +48,17 @@ export default function App() {
     setTareas(nuevasTareas);
     localStorage.setItem('tareasLocal', JSON.stringify(nuevasTareas));
   };
+
+  const cambiarEstado = (tarea_id, nuevoEstado) => {
+    const tareasActualizadas = tareas.map((tarea) => {
+      if (tarea.id === tarea_id) {
+        return { ...tarea, estado: nuevoEstado }; // Modificamos solo el estado de esta tarea
+      }
+      return tarea;
+    });
+    setTareas(tareasActualizadas);
+    localStorage.setItem('tareasLocal', JSON.stringify(tareasActualizadas));
+  };
   
   return (
     <div className="App">
@@ -59,7 +70,11 @@ export default function App() {
       <div className="contenedor">
         <CrearTarea guardar={(tarea) => guardar(tarea)} />
           
-        <Listado tareas={tareasMostradas} eliminar={(tarea_id) => eliminar(tarea_id)} />
+        <Listado 
+          tareas={tareasMostradas} 
+          eliminar={(tarea_id) => eliminar(tarea_id)} 
+          cambiarEstado={cambiarEstado} 
+        />
       </div>
     </div>
   );

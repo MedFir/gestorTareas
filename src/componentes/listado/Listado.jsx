@@ -1,7 +1,7 @@
 import Tarjeta from '../tarjeta/Tarjeta';
 import "./listado.css";
-export default function Listado ({tareas, eliminar}){
-  
+
+export default function Listado ({tareas, eliminar, cambiarEstado}){
   return (
     <div className="listadoTodo"> 
       <p className='subtitulo'>Tareas:</p>
@@ -17,6 +17,8 @@ export default function Listado ({tareas, eliminar}){
               estado={tarea.estado}
               id={tarea.id}
               eliminar={() => eliminar(tarea.id)}
+              // 2. Se la pasamos a la Tarjeta vinculando su id
+              cambiarEstado={(nuevoEstado) => cambiarEstado(tarea.id, nuevoEstado)}
             />
         )}
       </div>
