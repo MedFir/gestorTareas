@@ -10,16 +10,20 @@ Requerimientos:
 -Animaciones al aparecer tarjetas. (cargar pagina y crear tarjetas)
 -Animaciones al abrir y cerrar modales.
 -Convertir input de Descripción en textarea y reacomodar formulario.
+
 -filtros segun categoria
 -ordenar segun prioridad
--guardar local storage
--eliminar tareas default (hardcodeada, "tareasDefault[]")
+-cambiar estado
+
+
 -ventana de confirmacion de eliminacion.
+-mostrar cuando no hay tareas, un mensaje en listado.
 
 Bugs:
 -limitar titulo y descripción.
 -espacio de mas a la derecha de la pagina al crear tarjetas.
 -corregir manera de colocar tarejtas en listado. (listado component)
+-tareas no centradas en listado
 
 detalles:
 -cambiar color de botón submit.
