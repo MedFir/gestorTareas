@@ -1,8 +1,8 @@
 import "./FiltroCategoria.css";
-export default function FiltroCategoria (){
+export default function FiltroCategoria ({ onCambiarFiltro }){
 
     return(
-        <select>
+        <select onChange={(e) => onCambiarFiltro(e.target.value)}>
             <option value="none">Sin filtro</option>
             <option value="trabajo">Categoria: "Trabajo"</option>
             <option value="hogar">Categoria: "Hogar"</option>

@@ -1,9 +1,8 @@
 import "./OrdenUrgencia.css";
-export default function OrdenUrgencia (){
-
+export default function OrdenUrgencia ({ onCambiarOrden }){
     return(
-        <select>
-            <option value="none">Sin orden</option>
+        <select onChange={(e) => onCambiarOrden(e.target.value)}>
+            <option value="none">Orden de creacion</option>
             <option value="asc">Por urgencia (Asc.)</option>
             <option value="desc">Por urgencia (Desc.)</option>
         </select>

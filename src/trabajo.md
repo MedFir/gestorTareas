@@ -7,17 +7,11 @@ Pagina de tareas:
 #d3dfdf
 
 Requerimientos:
--Animaciones al aparecer tarjetas. (cargar pagina y crear tarjetas)
--Animaciones al abrir y cerrar modales.
+-cambiar estado
+-mostrar cuando no hay tareas, un mensaje en listado.
 -Convertir input de Descripción en textarea y reacomodar formulario.
 
--filtros segun categoria
--ordenar segun prioridad
--cambiar estado
 
-
--ventana de confirmacion de eliminacion.
--mostrar cuando no hay tareas, un mensaje en listado.
 
 Bugs:
 -limitar titulo y descripción.
@@ -28,7 +22,10 @@ Bugs:
 detalles:
 -cambiar color de botón submit.
 -cambiar icono de cerrar modal. ( mejorar )
-.usar numeros en useTarea
+-usar numeros en useTarea
+-Animaciones al aparecer tarjetas. (cargar pagina y crear tarjetas)
+-Animaciones al abrir y cerrar modales.
+-ventana de confirmacion de eliminacion.
 
 
 Consigna:
