@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #132335;
+    color: #d3dfdf;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
