@@ -1,13 +1,12 @@
 import useTareas from "../../hooks/useTareas";
 import "./crearTarea.css";
 export default function CrearTarea({ guardar }) {
-  
   const [tarea, setDatoTarea] = useTareas();
-  
+
   const hanlderSubmit = (e) => {
     e.preventDefault();
 
-    const id = (new Date()).getTime();
+    const id = new Date().getTime();
 
     //tipoUrgencia:
     //  "1" = No urgente.
@@ -21,7 +20,6 @@ export default function CrearTarea({ guardar }) {
 
     const estado = "1";
     guardar({ ...tarea, estado, id });
-    
   };
 
   return (
@@ -29,7 +27,6 @@ export default function CrearTarea({ guardar }) {
       <h2>Nueva Tarea:</h2>
 
       <form onSubmit={hanlderSubmit}>
-        
         <div className="inputDiv">
           <label>Titulo:</label>
           <input
@@ -54,8 +51,14 @@ export default function CrearTarea({ guardar }) {
         </div>
         <div className="inputDiv">
           <label>Urgencia</label>
-          <select onChange={(e) => setDatoTarea("tipoUrgencia",e.target.value)} value={tarea.tipoUrgencia} required>
-            <option value="" disabled selected hidden>Selecciona</option>
+          <select
+            onChange={(e) => setDatoTarea("tipoUrgencia", e.target.value)}
+            value={tarea.tipoUrgencia}
+            required
+          >
+            <option value="" disabled selected hidden>
+              Selecciona
+            </option>
             <option value="3">Muy urgente</option>
             <option value="2">Urgente</option>
             <option value="1">No urgente</option>
@@ -63,8 +66,14 @@ export default function CrearTarea({ guardar }) {
         </div>
         <div className="inputDiv">
           <label>Categoria</label>
-          <select onChange={(e) => setDatoTarea("categoria", e.target.value)} value={tarea.categoria} required>
-            <option value="" disabled selected hidden>Selecciona</option>
+          <select
+            onChange={(e) => setDatoTarea("categoria", e.target.value)}
+            value={tarea.categoria}
+            required
+          >
+            <option value="" disabled selected hidden>
+              Selecciona
+            </option>
             <option value="trabajo">Trabajo</option>
             <option value="hogar">Hogar</option>
             <option value="pagos">Pagos</option>
@@ -72,7 +81,7 @@ export default function CrearTarea({ guardar }) {
             <option value="deberes">Deberes</option>
           </select>
         </div>
-        
+
         <button type="submit">Enviar</button>
       </form>
     </div>
