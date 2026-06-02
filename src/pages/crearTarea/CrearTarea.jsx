@@ -24,11 +24,11 @@ export default function CrearTarea({ guardar }) {
 
   return (
     <div className="formulario">
-      <h2>Nueva Tarea:</h2>
+      <h2>Nueva Tarea</h2>
 
-      <form onSubmit={hanlderSubmit}>
+      <form className="formDiv" onSubmit={hanlderSubmit}>
         <div className="inputDiv">
-          <label>Titulo:</label>
+          <label>Titulo</label>
           <input
             type="text"
             placeholder="ej: Pagar la luz"
@@ -39,18 +39,7 @@ export default function CrearTarea({ guardar }) {
         </div>
 
         <div className="inputDiv">
-          <label>Descripcion</label>
-          <input
-            type="text"
-            placeholder="máx. 600 caracteres"
-            maxlength="600"
-            onChange={(e) => setDatoTarea("info", e.target.value)}
-            value={tarea.info}
-            required
-          />
-        </div>
-        <div className="inputDiv">
-          <label>Urgencia</label>
+          <label>Nivel de urgencia</label>
           <select
             onChange={(e) => setDatoTarea("tipoUrgencia", e.target.value)}
             value={tarea.tipoUrgencia}
@@ -82,7 +71,22 @@ export default function CrearTarea({ guardar }) {
           </select>
         </div>
 
-        <button type="submit">Enviar</button>
+        <div className="inputDiv">
+          <label>Descripcion</label>
+          <textarea
+            type="text"
+            placeholder="máx. 600 caracteres"
+            maxlength="600"
+            cols="4"
+            onChange={(e) => setDatoTarea("info", e.target.value)}
+            value={tarea.info}
+            required
+          />
+        </div>
+
+        <button className="submitButton" type="submit">
+          Enviar
+        </button>
       </form>
     </div>
   );

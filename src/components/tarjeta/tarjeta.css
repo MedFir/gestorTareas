@@ -1,13 +1,22 @@
 .tarjeta:hover {
     scale: 1.05;
 }
+@keyframes entrar {
+    from {
+        scale: 0.001;
+    }
+    to {
+        scale: 1;
+    }
+}
 .tarjeta {
+    animation: entrar 0.8s;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background-color: #214d55;
-    box-shadow: 0px 0px 25px #0F0F0F;
+    box-shadow: 0px 0px 25px #0f0f0f;
     color: #d3dfdf;
     margin: 20px;
     border-radius: 25px;
@@ -111,7 +120,7 @@
 .linea {
     margin: 20px 0px;
 }
-.fondoDetalles{
+.fondoDetalles {
     z-index: 3000;
     top: 50%;
     left: 50%;

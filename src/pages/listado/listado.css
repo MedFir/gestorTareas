@@ -3,10 +3,11 @@
     margin: 20px;
 }
 .listadoTodo {
+    animation: aparecer 0.8s;
     background-color: #1b363c;
     border-radius: 25px;
     flex: 3;
-    box-shadow: 0px 0px 25px #0F0F0F;
+    box-shadow: -5px 5px 10px #0f0f0f;
 }
 .listado {
     flex: 1;
