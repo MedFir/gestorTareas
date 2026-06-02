@@ -3,7 +3,7 @@
 }
 @keyframes entrar {
     from {
-        scale: 0.001;
+        scale: 0;
     }
     to {
         scale: 1;
@@ -73,7 +73,9 @@
     opacity: 50%;
 }
 
+/*Modal de detalles que se muestra*/
 .modalDetalles {
+    animation: entrar 0.3s;
     z-index: 5000;
     display: block;
     background-color: #132335;
