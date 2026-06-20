@@ -64,19 +64,27 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1>Tareas by MedFir</h1>
+        <img src="./gestorTareas.png" alt="icono de pagina"/>
+        <div className="appTitulos">
+          <h1>Gestor de tareas</h1>
+          <h2>By MedFir</h2>
+        </div>
       </header>
-      <Botonera onCambiarOrden={ordenarTareas} onCambiarFiltro={setFiltro} />
 
-      <div className="contenedor">
+      <div className="App-paneles">
         <CrearTarea guardar={(tarea) => guardar(tarea)} />
 
-        <Listado
-          tareas={tareasMostradas}
-          eliminar={(tarea_id) => eliminar(tarea_id)}
-          cambiarEstado={cambiarEstado}
-        />
+        <div className="App-panelesPares">
+          <Botonera onCambiarOrden={ordenarTareas} onCambiarFiltro={setFiltro} />
+
+          <Listado
+            tareas={tareasMostradas}
+            eliminar={(tarea_id) => eliminar(tarea_id)}
+            cambiarEstado={cambiarEstado}
+          />
+        </div>
       </div>
+      
     </div>
   );
 }

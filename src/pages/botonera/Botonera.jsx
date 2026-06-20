@@ -5,8 +5,10 @@ import OrdenUrgencia from "../../components/ordenUrgencia/OrdenUrgencia.jsx";
 export default function Botonera({ onCambiarOrden, onCambiarFiltro }) {
   return (
     <nav>
-      <FiltroCategoria onCambiarFiltro={onCambiarFiltro} />
-      <OrdenUrgencia onCambiarOrden={onCambiarOrden} />
+      <div className="nav-contenidos">
+        <FiltroCategoria onCambiarFiltro={onCambiarFiltro} />
+        <OrdenUrgencia onCambiarOrden={onCambiarOrden} />
+      </div>
     </nav>
   );
 }

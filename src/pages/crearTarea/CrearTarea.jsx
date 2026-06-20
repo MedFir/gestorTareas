@@ -85,7 +85,8 @@ export default function CrearTarea({ guardar }) {
         </div>
 
         <button className="submitButton" type="submit">
-          Enviar
+          <img src="./iconoCrearTarea.png" alt="icono boton" />
+          Crear tarea
         </button>
       </form>
     </div>

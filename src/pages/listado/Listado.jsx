@@ -4,7 +4,7 @@ import "./listado.css";
 export default function Listado({ tareas, eliminar, cambiarEstado }) {
   return (
     <div className="listadoTodo">
-      <p className="subtitulo">Tareas:</p>
+      <p className="subtitulo">Tareas</p>
       <div className="listado">
         {tareas.map((tarea) => (
           <Tarjeta

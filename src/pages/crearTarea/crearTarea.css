@@ -1,16 +1,17 @@
 .formulario {
     animation: aparecer 0.8s;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    background-color: #1b363c;
-    box-shadow: -5px 5px 10px #0f0f0f;
-    margin-right: 15px;
-    padding: 15px 20px;
-    border-radius: 25px;
+    background-color: #121F38;
+    box-shadow:
+        0 8px 24px #00000059,
+        inset 0 1px 0 #ffffff0d;
+    border-radius: 15px;
     flex-direction: column;
-    width: 300px;
-    min-height: 350px;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
 }
 .formulario h2 {
     font-size: 30px;
@@ -39,13 +40,13 @@ select,
 button,
 textarea {
     margin: 10px 5px;
-    background-color: #214d55;
-    color: #d3dfdf;
+    background-color: #111C35;
+    color: white;
     font-size: 20px;
-    border-radius: 15px;
+    border-radius: 7px;
     width: 250px;
     height: 50px;
-    border: 2px solid;
+    border: 1px solid #929292;
     transition: 200ms;
 }
 textarea {
@@ -66,12 +67,21 @@ textarea::placeholder {
     margin-top: 15px;
 }
 .submitButton {
-    width: 100px;
-    border-radius: 50px;
-    background-color: forestgreen;
-    box-shadow: 0px 0px 25px #0f0f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    border-radius: 8px;
+    background-color: #1a6ef5;
+    box-shadow: inset -90px 0px 60px #7C3AED;
     cursor: pointer;
     transition: 300ms;
+    font-size: 18px;
+    margin: 50px 0px;
+}
+.submitButton img{
+    width: 30px;
+    margin-right: 10px;
 }
 
 .formulario input:hover,
@@ -80,6 +90,6 @@ textarea::placeholder {
     scale: 1.1;
 }
 .submitButton:hover {
-    scale: 1.2;
-    color: black;
+    scale: 1.1;
+    border-radius: 20px;
 }

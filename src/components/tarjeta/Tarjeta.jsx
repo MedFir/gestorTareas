@@ -16,12 +16,20 @@ export default function Tarjeta({
   const valorEstadoOriginal = estado;
 
   let tipoUrgenciaTexto = "";
+  let colorFondo = "";
+  let colorTexto = "";
   if (tipoUrgencia == "1") {
     tipoUrgenciaTexto = "No urgente";
+    colorFondo = "#ef444440";
+    colorTexto = "#ef4444";
   } else if (tipoUrgencia == "2") {
     tipoUrgenciaTexto = "Urgente";
+    colorFondo = "#fff20040";
+    colorTexto = "#fff200";
   } else if (tipoUrgencia == "3") {
     tipoUrgenciaTexto = "Muy urgente";
+    colorFondo = "#77ef4440";
+    colorTexto = "#77ef44";
   }
 
   let estadoTexto = "";
@@ -36,20 +44,33 @@ export default function Tarjeta({
   return (
     <>
       <div className="tarjeta">
+
+        <div
+         className="tareaUrgencia"
+         style={{
+          backgroundColor: colorFondo,  
+          color: colorTexto
+        }
+        }
+         >
+          <p>{tipoUrgenciaTexto}</p>
+        </div>
+
         <div className="tareaTitulo">
           <p>{titulo}</p>
         </div>
         <div className="tareaInfo">
-          <p>{tipoUrgenciaTexto}</p>
           <p>{estadoTexto}</p>
           <p>{categoria}</p>
         </div>
+        <hr className="tareaHr"/>
         <div className="tareaBotones">
           <button onClick={mostrarModal} className="tareaBotonDetalles">
-            Detalles
+            <img src="./eye.png" alt="icono" />
+            <p>Ver detalles</p>
           </button>
           <button onClick={() => eliminar()} className="tareaBotonEliminar">
-            Eliminar
+            <img src="./trash.png" alt="icono" />
           </button>
         </div>
       </div>
