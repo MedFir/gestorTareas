@@ -45,7 +45,7 @@ export default function CrearTarea({ guardar }) {
             value={tarea.tipoUrgencia}
             required
           >
-            <option value="" disabled selected hidden>
+            <option value="" disabled hidden>
               Selecciona
             </option>
             <option value="3">Muy urgente</option>
@@ -60,7 +60,7 @@ export default function CrearTarea({ guardar }) {
             value={tarea.categoria}
             required
           >
-            <option value="" disabled selected hidden>
+            <option value="" disabled hidden>
               Selecciona
             </option>
             <option value="trabajo">Trabajo</option>
@@ -76,7 +76,7 @@ export default function CrearTarea({ guardar }) {
           <textarea
             type="text"
             placeholder="máx. 600 caracteres"
-            maxlength="600"
+            maxLength={600}
             cols="4"
             onChange={(e) => setDatoTarea("info", e.target.value)}
             value={tarea.info}

@@ -65,7 +65,7 @@ export default function App() {
     <div className="App">
       <header>
         <img src="./gestorTareas.png" alt="icono de pagina"/>
-        <div className="appTitulos">
+        <div>
           <h1>Gestor de tareas</h1>
           <h2>By MedFir</h2>
         </div>
