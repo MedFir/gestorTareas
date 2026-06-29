@@ -1,10 +1,24 @@
 import Listado from "./pages/listado/Listado.jsx";
 import CrearTarea from "./pages/crearTarea/CrearTarea.jsx";
 import Botonera from "./pages/botonera/Botonera.jsx";
+import Nav from "./components/nav/Nav.jsx";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Router, Route, Switch } from "wouter";
 
 export default function App() {
+  useEffect(() => {
+    const url = "https://api-tareas.ctpoba.edu.ar/api";
+    axios
+      .get(url)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   const verificador = JSON.parse(localStorage.getItem("tareasLocal"));
 
   const tareasLocalStorage = verificador ? [...verificador] : [];
@@ -64,27 +78,47 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <img src="./gestorTareas.png" alt="icono de pagina"/>
+        <img src="./gestorTareas.png" alt="icono de pagina" />
         <div>
           <h1>Gestor de tareas</h1>
           <h2>By MedFir</h2>
         </div>
       </header>
 
+      <Nav />
+
       <div className="App-paneles">
-        <CrearTarea guardar={(tarea) => guardar(tarea)} />
+        <Router>
+          <Switch>
+            <Route path="/">
+              <h1>Bienvenido al menu de inicio</h1>
+            </Route>
 
-        <div className="App-panelesPares">
-          <Botonera onCambiarOrden={ordenarTareas} onCambiarFiltro={setFiltro} />
+            <Route path="/crear">
+              <CrearTarea guardar={(tarea) => guardar(tarea)} />
+            </Route>
 
-          <Listado
-            tareas={tareasMostradas}
-            eliminar={(tarea_id) => eliminar(tarea_id)}
-            cambiarEstado={cambiarEstado}
-          />
-        </div>
+            <Route path="/listado">
+              <div className="App-panelesPares">
+                <Botonera
+                  onCambiarOrden={ordenarTareas}
+                  onCambiarFiltro={setFiltro}
+                />
+
+                <Listado
+                  tareas={tareasMostradas}
+                  eliminar={(tarea_id) => eliminar(tarea_id)}
+                  cambiarEstado={cambiarEstado}
+                />
+              </div>
+            </Route>
+
+            <Route>
+              <h1>Pagina no encontrada - error 404</h1>
+            </Route>
+          </Switch>
+        </Router>
       </div>
-      
     </div>
   );
 }

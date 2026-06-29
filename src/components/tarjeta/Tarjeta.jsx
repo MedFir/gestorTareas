@@ -20,16 +20,16 @@ export default function Tarjeta({
   let colorTexto = "";
   if (tipoUrgencia == "1") {
     tipoUrgenciaTexto = "No urgente";
-    colorFondo = "#ef444440";
-    colorTexto = "#ef4444";
+    colorFondo = "#77ef4440";
+    colorTexto = "#77ef44";
   } else if (tipoUrgencia == "2") {
     tipoUrgenciaTexto = "Urgente";
     colorFondo = "#fff20040";
     colorTexto = "#fff200";
   } else if (tipoUrgencia == "3") {
     tipoUrgenciaTexto = "Muy urgente";
-    colorFondo = "#77ef4440";
-    colorTexto = "#77ef44";
+    colorFondo = "#ef444440";
+    colorTexto = "#ef4444";
   }
 
   let estadoTexto = "";
@@ -44,15 +44,13 @@ export default function Tarjeta({
   return (
     <>
       <div className="tarjeta">
-
         <div
-         className="tareaUrgencia"
-         style={{
-          backgroundColor: colorFondo,  
-          color: colorTexto
-        }
-        }
-         >
+          className="tareaUrgencia"
+          style={{
+            backgroundColor: colorFondo,
+            color: colorTexto,
+          }}
+        >
           <p>{tipoUrgenciaTexto}</p>
         </div>
 
@@ -63,7 +61,7 @@ export default function Tarjeta({
           <p>{estadoTexto}</p>
           <p>{categoria}</p>
         </div>
-        <hr className="tareaHr"/>
+        <hr className="tareaHr" />
         <div className="tareaBotones">
           <button onClick={mostrarModal} className="tareaBotonDetalles">
             <img src="./eye.png" alt="icono" />
