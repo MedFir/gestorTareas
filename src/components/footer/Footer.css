@@ -1,0 +1,67 @@
+/* Contenedor principal del footer */
+.footer-contenedor {
+  margin-top: 150px;
+  color: #ecf0f1;
+  padding: 40px 20px 20px 20px;
+  font-family: Arial, sans-serif;
+  margin-top: auto; /* Útil si tienes la página configurada con flexbox para que el footer baje */
+}
+
+/* Flexbox para alinear las columnas */
+.footer-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+/* Cada una de las 3 columnas */
+.footer-seccion {
+  flex: 1;
+  min-width: 250px; /* Para que en celulares bajen a la siguiente línea */
+}
+
+.footer-seccion h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #3498db;
+}
+
+.footer-seccion p {
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Estilos de la lista de enlaces */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+}
+
+/* Barra inferior del copyright */
+.footer-inferior {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #34495e;
+  font-size: 0.8rem;
+  color: #bdc3c7;
+}

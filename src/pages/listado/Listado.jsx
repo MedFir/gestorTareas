@@ -1,7 +1,14 @@
 import Tarjeta from "../../components/tarjeta/Tarjeta";
 import "./listado.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 
 export default function Listado({ tareas, eliminar, cambiarEstado }) {
+  
+  
+
+
   return (
     <div className="listadoTodo">
       <p className="subtitulo">Tareas</p>
@@ -12,12 +19,11 @@ export default function Listado({ tareas, eliminar, cambiarEstado }) {
           tareas.map((tarea) => (
             <Tarjeta
               key={tarea.id}
-              titulo={tarea.titulo}
-              info={tarea.info}
-              tipoUrgencia={tarea.tipoUrgencia}
+              nombre={tarea.nombre}
+              descripcion={tarea.descripcion}
+              prioridad={tarea.prioridad}
               categoria={tarea.categoria}
               estado={tarea.estado}
-              id={tarea.id}
               eliminar={() => eliminar(tarea.id)}
               cambiarEstado={(nuevoEstado) =>
                 cambiarEstado(tarea.id, nuevoEstado)

@@ -1,0 +1,36 @@
+.navCompleto {
+    width: 100%;
+    height: 100px;
+
+    background-color: #121f38;
+    border-radius: 15px;
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-botonRuta {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 5px;
+    background-color: #111c35;
+    color: white;
+    font-size: 20px;
+    border-radius: 7px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid #929292;
+    transition: 200ms;
+}
+.nav-botonRuta:hover {
+    scale: 1.1;
+    border-radius: 20px;
+}
