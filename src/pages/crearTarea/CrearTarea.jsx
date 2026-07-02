@@ -1,25 +1,33 @@
 import useTareas from "../../hooks/useTareas";
 import "./crearTarea.css";
+import axios from "axios";
+
 export default function CrearTarea({ guardar }) {
   const [tarea, setDatoTarea] = useTareas();
 
   const hanlderSubmit = (e) => {
     e.preventDefault();
 
-    const id = new Date().getTime();
-
-    //tipoUrgencia:
-    //  "1" = No urgente.
-    //  "2" = Urgente.
-    //  "3" = Muy urgente.
-
-    //estado:
-    // "1" = "Pendente" default
-    // "2" = "En proceso"
-    // "3" = "Finalizado"
-
     const estado = "1";
-    guardar({ ...tarea, estado, id });
+    const tareaActual = { ...tarea, estado };//tengo que ver porque se manda priridad como string
+    console.log(tareaActual)
+
+    const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
+    const config = {
+      headers: { Authorization: "48354503" },
+    };
+
+    axios
+      .post(url, tareaActual, config)
+      .then((resp) => {
+        console.log(resp);
+        alert("Persona guardada");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Error al guardar");
+      });
+    
   };
 
   return (
@@ -32,8 +40,8 @@ export default function CrearTarea({ guardar }) {
           <input
             type="text"
             placeholder="ej: Pagar la luz"
-            onChange={(e) => setDatoTarea("titulo", e.target.value)}
-            value={tarea.titulo}
+            onChange={(e) => setDatoTarea("nombre", e.target.value)}
+            value={tarea.nombre}
             required
           />
         </div>
@@ -41,16 +49,16 @@ export default function CrearTarea({ guardar }) {
         <div className="inputDiv">
           <label>Nivel de urgencia</label>
           <select
-            onChange={(e) => setDatoTarea("tipoUrgencia", e.target.value)}
-            value={tarea.tipoUrgencia}
+            onChange={(e) => setDatoTarea("prioridad", e.target.value)}
+            value={tarea.prioridad}
             required
           >
             <option value="" disabled hidden>
               Selecciona
             </option>
-            <option value="3">Muy urgente</option>
-            <option value="2">Urgente</option>
-            <option value="1">No urgente</option>
+            <option value={3}>Muy urgente</option>
+            <option value={2}>Urgente</option>
+            <option value={1}>No urgente</option>
           </select>
         </div>
         <div className="inputDiv">
@@ -78,8 +86,8 @@ export default function CrearTarea({ guardar }) {
             placeholder="máx. 600 caracteres"
             maxLength={600}
             cols="4"
-            onChange={(e) => setDatoTarea("info", e.target.value)}
-            value={tarea.info}
+            onChange={(e) => setDatoTarea("descripcion", e.target.value)}
+            value={tarea.descripcion}
             required
           />
         </div>

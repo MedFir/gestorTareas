@@ -2,9 +2,9 @@ import useToggle from "../../hooks/useToggle.jsx";
 import "./tarjeta.css";
 
 export default function Tarjeta({
-  titulo,
-  info,
-  tipoUrgencia,
+  nombre,
+  descripcion,
+  prioridad,
   categoria,
   estado,
   eliminar,
@@ -15,19 +15,19 @@ export default function Tarjeta({
 
   const valorEstadoOriginal = estado;
 
-  let tipoUrgenciaTexto = "";
+  let prioridadTexto = "";
   let colorFondo = "";
   let colorTexto = "";
-  if (tipoUrgencia == "1") {
-    tipoUrgenciaTexto = "No urgente";
+  if (prioridad == 1) {
+    prioridadTexto = "No urgente";
     colorFondo = "#77ef4440";
     colorTexto = "#77ef44";
-  } else if (tipoUrgencia == "2") {
-    tipoUrgenciaTexto = "Urgente";
+  } else if (prioridad == 2) {
+    prioridadTexto = "Urgente";
     colorFondo = "#fff20040";
     colorTexto = "#fff200";
-  } else if (tipoUrgencia == "3") {
-    tipoUrgenciaTexto = "Muy urgente";
+  } else if (prioridad == 3) {
+    prioridadTexto = "Muy urgente";
     colorFondo = "#ef444440";
     colorTexto = "#ef4444";
   }
@@ -51,11 +51,11 @@ export default function Tarjeta({
             color: colorTexto,
           }}
         >
-          <p>{tipoUrgenciaTexto}</p>
+          <p>{prioridadTexto}</p>
         </div>
 
         <div className="tareaTitulo">
-          <p>{titulo}</p>
+          <p>{nombre}</p>
         </div>
         <div className="tareaInfo">
           <p>{estadoTexto}</p>
@@ -92,7 +92,7 @@ export default function Tarjeta({
 
         <div className="mainDetalles">
           <div className="cabezeraDetalles">
-            <p>{tipoUrgenciaTexto}</p>
+            <p>{prioridadTexto}</p>
 
             <div className="contenedor-cambio-estado">
               <label htmlFor={`cambiar-estado-${id}`}>Estado: </label>
@@ -101,9 +101,9 @@ export default function Tarjeta({
                 value={valorEstadoOriginal}
                 onChange={(e) => cambiarEstado(e.target.value)}
               >
-                <option value="1">Pendiente</option>
-                <option value="2">En proceso</option>
-                <option value="3">Finalizado</option>
+                <option value={1}>Pendiente</option>
+                <option value={2}>En proceso</option>
+                <option value={3}>Finalizado</option>
               </select>
             </div>
 
@@ -111,7 +111,7 @@ export default function Tarjeta({
           </div>
           <hr className="linea"></hr>
           <div>
-            <p>{info}</p>
+            <p>{descripcion}</p>
           </div>
         </div>
       </div>

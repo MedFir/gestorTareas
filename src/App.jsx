@@ -9,22 +9,22 @@ import { Router, Route, Switch } from "wouter";
 
 export default function App() {
   useEffect(() => {
-    const url = "https://api-tareas.ctpoba.edu.ar/api";
+    const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
+    const config = {
+      headers: { Authorization: "48354503" },
+    };
     axios
-      .get(url)
+      .get(url, config)
       .then((resp) => {
         console.log(resp);
+        setTareas(resp.data.tareas);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-  const verificador = JSON.parse(localStorage.getItem("tareasLocal"));
 
-  const tareasLocalStorage = verificador ? [...verificador] : [];
-
-  const [tareas, setTareas] = useState(tareasLocalStorage);
-
+  const [tareas, setTareas] = useState([]);
   const [filtro, setFiltro] = useState("none");
 
   const tareasMostradas =
@@ -36,10 +36,10 @@ export default function App() {
     let tareasOrdenadas = [...tareas];
     if (ordenSeleccionado === "asc") {
       //orden asc = NoUrg a MuyUrg
-      tareasOrdenadas.sort((a, b) => a.tipoUrgencia - b.tipoUrgencia);
+      tareasOrdenadas.sort((a, b) => a.tipoUrgencia - b.tipoUrgencia); //ASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
     } else if (ordenSeleccionado === "desc") {
       //orden desc = MuyUrg a NoUrg
-      tareasOrdenadas.sort((a, b) => b.tipoUrgencia - a.tipoUrgencia);
+      tareasOrdenadas.sort((a, b) => b.tipoUrgencia - a.tipoUrgencia); //ASSSSSSSSSSSSSSSSSSssssssssssssssssssssssssssssssss
     } else {
       //por fecha de creacion desc
       const tareasOriginales =
