@@ -1,37 +1,50 @@
 .tarjeta:hover {
     scale: 1.05;
 }
+@keyframes entrar {
+    from {
+        scale: 0;
+    }
+    to {
+        scale: 1;
+    }
+}
+.tarjeta, .tareaInfo {
+    background-color: #121F38;
+}
 .tarjeta {
+    animation: entrar 0.6s;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
-    background-color: #214d55;
-    box-shadow: 0px 0px 25px #0F0F0F;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.45),
+    0 0 20px rgba(79,70,229,.12);
     color: #d3dfdf;
-    margin: 20px;
-    border-radius: 25px;
+    border-radius: 15px;
     transition: 200ms;
     width: 310px;
     height: 230px;
+    padding: 20px;
 }
 .tareaTitulo {
     padding: 10px 0px;
     width: 100%;
     height: 20%;
-    font-size: 30px;
+    font-size: 20px;
 }
 .tareaTitulo p,
 .tareaInfo p {
-    margin-left: 10px;
+    margin: 2px 0px;
 }
 .tareaInfo {
-    background-color: #214d55;
+    color: #afb7b7;
     width: 100%;
     height: 60%;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 15px;
 }
 .tareaBotones {
     width: 100%;
@@ -40,31 +53,58 @@
     justify-content: space-between;
     align-items: center;
 }
+.tareaUrgencia{
+    padding: 10px;
+    border-radius: 15px;
+}
+.tareaHr{
+    border: none; 
+    height: 3px; 
+    background-color: #334f83; 
+    width: 100%;
+}
 .tareaBotonDetalles,
 .tareaBotonEliminar {
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     margin: 0px;
+    margin-top: 10px;
     border-radius: 0px;
-    font-size: 22px;
+    font-size: 15px;
     border: 0;
     cursor: pointer;
     transition: 200ms;
+    color: #9f67ff;
+    background-color: #121F38;
 }
 .tareaBotonDetalles {
-    background-color: #003797;
-    border-bottom-left-radius: 25px;
+    width: 50%;
+    border-bottom-left-radius: 15px;
 }
 .tareaBotonEliminar {
-    background-color: #b40000;
-    border-bottom-right-radius: 25px;
+    width: 50px;
+    border-bottom-right-radius: 15px;
+}
+.tareaBotonDetalles img{
+    width: 40px;
+}
+.tareaBotonEliminar img{
+    width: 30px;
 }
 .tareaBotonDetalles:hover,
 .tareaBotonEliminar:hover {
     opacity: 50%;
 }
+.tareaBotonDetalles p,
+.tareaBotonEliminar p{
+    width: 100%;
+}
 
+/*Modal de detalles que se muestra*/
 .modalDetalles {
+    animation: entrar 0.3s;
     z-index: 5000;
     display: block;
     background-color: #132335;
@@ -97,7 +137,7 @@
     width: 40px;
     height: 40px;
     margin: 0px;
-    background-color: red;
+    background-color: red;  
     cursor: pointer;
 }
 .cerrarDetalles:hover {
@@ -111,7 +151,7 @@
 .linea {
     margin: 20px 0px;
 }
-.fondoDetalles{
+.fondoDetalles {
     z-index: 3000;
     top: 50%;
     left: 50%;

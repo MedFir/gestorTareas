@@ -1,0 +1,95 @@
+.formulario {
+    animation: aparecer 0.8s;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #121F38;
+    box-shadow:
+        0 8px 24px #00000059,
+        inset 0 1px 0 #ffffff0d;
+    border-radius: 15px;
+    flex-direction: column;
+    width: 500px;
+    height: 100%;
+    padding-top: 50px;
+}
+.formulario h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.formDiv {
+    width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.inputDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario input,
+select,
+button,
+textarea {
+    margin: 10px 5px;
+    background-color: #111C35;
+    color: white;
+    font-size: 20px;
+    border-radius: 7px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid #929292;
+    transition: 200ms;
+}
+textarea {
+    resize: vertical;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input::placeholder,
+textarea::placeholder {
+    color: #d3dfdf5b;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 13px 0px;
+}
+.formulario label {
+    color: #d3dfdf;
+    font-size: 25px;
+    margin-top: 15px;
+}
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    border-radius: 8px;
+    background-color: #1a6ef5;
+    box-shadow: inset -90px 0px 60px #7C3AED;
+    cursor: pointer;
+    transition: 300ms;
+    font-size: 18px;
+    margin: 50px 0px;
+}
+.submitButton img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.formulario input:hover,
+.formulario select:hover,
+.formulario textarea:hover {
+    scale: 1.1;
+}
+.submitButton:hover {
+    scale: 1.1;
+    border-radius: 20px;
+}

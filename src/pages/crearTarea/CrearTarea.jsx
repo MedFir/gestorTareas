@@ -1,13 +1,12 @@
 import useTareas from "../../hooks/useTareas";
 import "./crearTarea.css";
 export default function CrearTarea({ guardar }) {
-  
   const [tarea, setDatoTarea] = useTareas();
-  
+
   const hanlderSubmit = (e) => {
     e.preventDefault();
 
-    const id = (new Date()).getTime();
+    const id = new Date().getTime();
 
     //tipoUrgencia:
     //  "1" = No urgente.
@@ -21,17 +20,15 @@ export default function CrearTarea({ guardar }) {
 
     const estado = "1";
     guardar({ ...tarea, estado, id });
-    
   };
 
   return (
     <div className="formulario">
-      <h2>Nueva Tarea:</h2>
+      <h2>Nueva Tarea</h2>
 
-      <form onSubmit={hanlderSubmit}>
-        
+      <form className="formDiv" onSubmit={hanlderSubmit}>
         <div className="inputDiv">
-          <label>Titulo:</label>
+          <label>Titulo</label>
           <input
             type="text"
             placeholder="ej: Pagar la luz"
@@ -42,20 +39,15 @@ export default function CrearTarea({ guardar }) {
         </div>
 
         <div className="inputDiv">
-          <label>Descripcion</label>
-          <input
-            type="text"
-            placeholder="máx. 600 caracteres"
-            maxlength="600"
-            onChange={(e) => setDatoTarea("info", e.target.value)}
-            value={tarea.info}
+          <label>Nivel de urgencia</label>
+          <select
+            onChange={(e) => setDatoTarea("tipoUrgencia", e.target.value)}
+            value={tarea.tipoUrgencia}
             required
-          />
-        </div>
-        <div className="inputDiv">
-          <label>Urgencia</label>
-          <select onChange={(e) => setDatoTarea("tipoUrgencia",e.target.value)} value={tarea.tipoUrgencia} required>
-            <option value="" disabled selected hidden>Selecciona</option>
+          >
+            <option value="" disabled hidden>
+              Selecciona
+            </option>
             <option value="3">Muy urgente</option>
             <option value="2">Urgente</option>
             <option value="1">No urgente</option>
@@ -63,8 +55,14 @@ export default function CrearTarea({ guardar }) {
         </div>
         <div className="inputDiv">
           <label>Categoria</label>
-          <select onChange={(e) => setDatoTarea("categoria", e.target.value)} value={tarea.categoria} required>
-            <option value="" disabled selected hidden>Selecciona</option>
+          <select
+            onChange={(e) => setDatoTarea("categoria", e.target.value)}
+            value={tarea.categoria}
+            required
+          >
+            <option value="" disabled hidden>
+              Selecciona
+            </option>
             <option value="trabajo">Trabajo</option>
             <option value="hogar">Hogar</option>
             <option value="pagos">Pagos</option>
@@ -72,8 +70,24 @@ export default function CrearTarea({ guardar }) {
             <option value="deberes">Deberes</option>
           </select>
         </div>
-        
-        <button type="submit">Enviar</button>
+
+        <div className="inputDiv">
+          <label>Descripcion</label>
+          <textarea
+            type="text"
+            placeholder="máx. 600 caracteres"
+            maxLength={600}
+            cols="4"
+            onChange={(e) => setDatoTarea("info", e.target.value)}
+            value={tarea.info}
+            required
+          />
+        </div>
+
+        <button className="submitButton" type="submit">
+          <img src="./iconoCrearTarea.png" alt="icono boton" />
+          Crear tarea
+        </button>
       </form>
     </div>
   );

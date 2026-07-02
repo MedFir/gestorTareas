@@ -16,9 +16,6 @@ export default function useTarea() {
       estado: (valor) => setEstado(valor),
     };
     opciones[campo](valor);
-  }
-  return [
-    {titulo,info,tipoUrgencia,categoria,estado},
-    cambiarDato
-  ]
+  };
+  return [{ titulo, info, tipoUrgencia, categoria, estado }, cambiarDato];
 }
