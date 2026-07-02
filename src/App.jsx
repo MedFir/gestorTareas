@@ -2,77 +2,111 @@ import Listado from "./pages/listado/Listado.jsx";
 import CrearTarea from "./pages/crearTarea/CrearTarea.jsx";
 import Botonera from "./pages/botonera/Botonera.jsx";
 import Nav from "./components/nav/Nav.jsx";
+import Footer from "./components/footer/Footer.jsx";
+import Cargando from "./components/cargando/Cargando.jsx";
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Router, Route, Switch } from "wouter";
 
 export default function App() {
-  useEffect(() => {
-    const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
+  const [tareas, setTareas] = useState([]);
+  const [cargando, setCargando] = useState(false);
+
+  //Estados para recordar qué filtros eligió el usuario
+  const [filtro, setFiltro] = useState("none");
+  const [orden, setOrden] = useState("none");
+
+  const ordenarTareas = (ordenSeleccionado) => {
+    actualizar(ordenSeleccionado);
+  };
+
+  //PUT
+  const cambiarEstado = (tarea_id, nuevoEstado) => {
+
+    const url = `https://api-tareas.ctpoba.edu.ar/api/tareas/estado/${tarea_id}`;
+
+    const body = { 
+        estado: nuevoEstado 
+    };
+
     const config = {
       headers: { Authorization: "48354503" },
     };
     axios
-      .get(url, config)
+      .put(url, body, config)
       .then((resp) => {
         console.log(resp);
-        setTareas(resp.data.tareas);
       })
       .catch((error) => {
         console.error(error);
+        alert("Tarea no actualzada")
+      })
+      .finally(() => {
+        actualizar();
       });
-  }, []);
-
-  const [tareas, setTareas] = useState([]);
-  const [filtro, setFiltro] = useState("none");
-
-  const tareasMostradas =
-    filtro === "none"
-      ? tareas
-      : tareas.filter((tarea) => tarea.categoria === filtro);
-
-  const ordenarTareas = (ordenSeleccionado) => {
-    let tareasOrdenadas = [...tareas];
-    if (ordenSeleccionado === "asc") {
-      //orden asc = NoUrg a MuyUrg
-      tareasOrdenadas.sort((a, b) => a.tipoUrgencia - b.tipoUrgencia); //ASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-    } else if (ordenSeleccionado === "desc") {
-      //orden desc = MuyUrg a NoUrg
-      tareasOrdenadas.sort((a, b) => b.tipoUrgencia - a.tipoUrgencia); //ASSSSSSSSSSSSSSSSSSssssssssssssssssssssssssssssssss
-    } else {
-      //por fecha de creacion desc
-      const tareasOriginales =
-        JSON.parse(localStorage.getItem("tareasLocal")) || [];
-      tareasOrdenadas = tareasOriginales;
-    }
-    setTareas(tareasOrdenadas);
-    console.log(tareasOrdenadas);
   };
 
   const guardar = (tarea) => {
     let nuevasTareas = [...tareas];
     nuevasTareas.push(tarea);
     setTareas(nuevasTareas);
-    localStorage.setItem("tareasLocal", JSON.stringify(nuevasTareas));
   };
 
+  //GET
+  const actualizar = () => {
+    setCargando(true);
+    const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
+    const config = {
+      headers: { Authorization: "48354503" },
+      params: {} 
+    };
+
+    if (orden === "ASC" || orden === "DESC") {
+      config.params.orden = orden;
+    }
+    if (filtro !== "none") {
+      config.params.categoria = filtro;
+    }
+
+    axios
+      .get(url, config)
+      .then((resp) => {
+        //console.log(resp);
+        setTareas(resp.data.tareas); 
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+      .finally(() => {
+        setCargando(false); 
+      });
+  };
+
+  useEffect(() => {
+    actualizar();
+  }, [filtro, orden]);
+
+  //DELETE
   const eliminar = (tarea_id) => {
-    const nuevasTareas = tareas.filter((tareas) => tareas.id != tarea_id);
-    console.log(nuevasTareas);
-    setTareas(nuevasTareas);
-    localStorage.setItem("tareasLocal", JSON.stringify(nuevasTareas));
-  };
-
-  const cambiarEstado = (tarea_id, nuevoEstado) => {
-    const tareasActualizadas = tareas.map((tarea) => {
-      if (tarea.id === tarea_id) {
-        return { ...tarea, estado: nuevoEstado }; // Modificamos solo el estado de esta tarea
-      }
-      return tarea;
-    });
-    setTareas(tareasActualizadas);
-    localStorage.setItem("tareasLocal", JSON.stringify(tareasActualizadas));
+    setCargando(true);
+    const url = `https://api-tareas.ctpoba.edu.ar/api/tareas/${tarea_id}`;
+    const config = {
+      headers: { Authorization: "48354503" },
+    };
+    axios
+      .delete(url, config)
+      .then((resp) => {
+        //console.log(resp);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("No se elimino la tarea, error: "+error);
+      })
+      .finally(() => {
+        setCargando(false);
+        actualizar();
+      });
   };
 
   return (
@@ -87,6 +121,10 @@ export default function App() {
 
       <Nav />
 
+      {cargando && (
+        <Cargando />
+      )}
+
       <div className="App-paneles">
         <Router>
           <Switch>
@@ -95,18 +133,22 @@ export default function App() {
             </Route>
 
             <Route path="/crear">
-              <CrearTarea guardar={(tarea) => guardar(tarea)} />
+              <CrearTarea 
+                guardar={(tarea) => guardar(tarea)}
+                actualizar={actualizar}
+                setCargando={setCargando}
+              />
             </Route>
 
             <Route path="/listado">
               <div className="App-panelesPares">
                 <Botonera
-                  onCambiarOrden={ordenarTareas}
+                  onCambiarOrden={setOrden}
                   onCambiarFiltro={setFiltro}
                 />
 
                 <Listado
-                  tareas={tareasMostradas}
+                  tareas={tareas}
                   eliminar={(tarea_id) => eliminar(tarea_id)}
                   cambiarEstado={cambiarEstado}
                 />
@@ -119,6 +161,7 @@ export default function App() {
           </Switch>
         </Router>
       </div>
+      <Footer/>
     </div>
   );
 }

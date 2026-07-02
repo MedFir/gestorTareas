@@ -1,15 +1,17 @@
 import useTareas from "../../hooks/useTareas";
 import "./crearTarea.css";
 import axios from "axios";
+import { useLocation } from "wouter";
 
-export default function CrearTarea({ guardar }) {
+export default function CrearTarea({ guardar, actualizar, setCargando }) {
   const [tarea, setDatoTarea] = useTareas();
+  const [_, setLocation] = useLocation();
 
   const hanlderSubmit = (e) => {
     e.preventDefault();
-
+    setCargando(true); 
     const estado = "1";
-    const tareaActual = { ...tarea, estado };//tengo que ver porque se manda priridad como string
+    const tareaActual = { ...tarea, estado };
     console.log(tareaActual)
 
     const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
@@ -22,10 +24,15 @@ export default function CrearTarea({ guardar }) {
       .then((resp) => {
         console.log(resp);
         alert("Persona guardada");
+        setLocation("/listado");
       })
       .catch((error) => {
         console.error(error);
         alert("Error al guardar");
+      })
+      .finally(() => {
+        setCargando(false); 
+        actualizar();
       });
     
   };
@@ -49,7 +56,7 @@ export default function CrearTarea({ guardar }) {
         <div className="inputDiv">
           <label>Nivel de urgencia</label>
           <select
-            onChange={(e) => setDatoTarea("prioridad", e.target.value)}
+            onChange={(e) => setDatoTarea("prioridad", Number(e.target.value))}
             value={tarea.prioridad}
             required
           >

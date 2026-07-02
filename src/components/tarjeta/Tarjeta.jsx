@@ -84,7 +84,7 @@ export default function Tarjeta({
         style={{ display: estadoModal ? "block" : "none" }}
       >
         <div className="navDetalles">
-          <p>{titulo}</p>
+          <p>{nombre}</p>
           <button onClick={mostrarModal} className="cerrarDetalles">
             x
           </button>
@@ -97,6 +97,7 @@ export default function Tarjeta({
             <div className="contenedor-cambio-estado">
               <label htmlFor={`cambiar-estado-${id}`}>Estado: </label>
               <select
+                className="inputEstado"
                 id={`cambiar-estado-${id}`}
                 value={valorEstadoOriginal}
                 onChange={(e) => cambiarEstado(e.target.value)}
