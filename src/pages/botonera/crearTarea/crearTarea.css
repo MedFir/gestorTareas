@@ -3,7 +3,7 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #121F38;
+    background-color: #121f38;
     box-shadow:
         0 8px 24px #00000059,
         inset 0 1px 0 #ffffff0d;
@@ -40,7 +40,7 @@ select,
 button,
 textarea {
     margin: 10px 5px;
-    background-color: #111C35;
+    background-color: #111c35;
     color: white;
     font-size: 20px;
     border-radius: 7px;
@@ -76,13 +76,13 @@ textarea::placeholder {
     width: 250px;
     border-radius: 8px;
     background-color: #1a6ef5;
-    box-shadow: inset -90px 0px 60px #7C3AED;
+    box-shadow: inset -90px 0px 60px #7c3aed;
     cursor: pointer;
     transition: 300ms;
     font-size: 18px;
     margin: 50px 0px;
 }
-.submitButton img{
+.submitButton img {
     width: 30px;
     margin-right: 10px;
 }
@@ -94,4 +94,26 @@ textarea::placeholder {
 .submitButton:hover {
     scale: 1.1;
     border-radius: 20px;
+}
+
+@media (max-width: 425px) {
+    .formulario input,
+    select,
+    button,
+    textarea {
+        margin: 10px 5px;
+        font-size: 15px;
+        border-radius: 15px;
+        width: 300px;
+        height: 50px;
+    }
+    .formulario label {
+        font-size: 17px;
+        text-align: start;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        font-size: 15px;
+        padding: 13px 0px;
+    }
 }

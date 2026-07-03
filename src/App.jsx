@@ -23,11 +23,10 @@ export default function App() {
 
   //PUT
   const cambiarEstado = (tarea_id, nuevoEstado) => {
-
     const url = `https://api-tareas.ctpoba.edu.ar/api/tareas/estado/${tarea_id}`;
 
-    const body = { 
-        estado: nuevoEstado 
+    const body = {
+      estado: nuevoEstado,
     };
 
     const config = {
@@ -40,7 +39,7 @@ export default function App() {
       })
       .catch((error) => {
         console.error(error);
-        alert("Tarea no actualzada")
+        alert("Tarea no actualzada");
       })
       .finally(() => {
         actualizar();
@@ -59,7 +58,7 @@ export default function App() {
     const url = "https://api-tareas.ctpoba.edu.ar/api/tareas";
     const config = {
       headers: { Authorization: "48354503" },
-      params: {} 
+      params: {},
     };
 
     if (orden === "ASC" || orden === "DESC") {
@@ -68,18 +67,18 @@ export default function App() {
     if (filtro !== "none") {
       config.params.categoria = filtro;
     }
-
+    console.log(config);
     axios
       .get(url, config)
       .then((resp) => {
         //console.log(resp);
-        setTareas(resp.data.tareas); 
+        setTareas(resp.data.tareas);
       })
       .catch((error) => {
-        console.error(error)
+        console.error(error);
       })
       .finally(() => {
-        setCargando(false); 
+        setCargando(false);
       });
   };
 
@@ -101,7 +100,7 @@ export default function App() {
       })
       .catch((error) => {
         console.error(error);
-        alert("No se elimino la tarea, error: "+error);
+        alert("No se elimino la tarea, error: " + error);
       })
       .finally(() => {
         setCargando(false);
@@ -121,9 +120,7 @@ export default function App() {
 
       <Nav />
 
-      {cargando && (
-        <Cargando />
-      )}
+      {cargando && <Cargando />}
 
       <div className="App-paneles">
         <Router>
@@ -133,7 +130,7 @@ export default function App() {
             </Route>
 
             <Route path="/crear">
-              <CrearTarea 
+              <CrearTarea
                 guardar={(tarea) => guardar(tarea)}
                 actualizar={actualizar}
                 setCargando={setCargando}
@@ -161,7 +158,7 @@ export default function App() {
           </Switch>
         </Router>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

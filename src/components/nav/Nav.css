@@ -14,6 +14,8 @@
 }
 
 .nav-botonRuta {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
     all: unset;
     cursor: pointer;
     display: flex;
@@ -28,9 +30,27 @@
     width: 250px;
     height: 50px;
     border: 1px solid #929292;
-    transition: 200ms;
+    transition: 150ms;
 }
 .nav-botonRuta:hover {
     scale: 1.1;
     border-radius: 20px;
+}
+@media (max-width: 425px) {
+    .navCompleto {
+        height: 90%;
+    }
+    .nav-botonRuta:hover {
+        scale: 1;
+        border-radius: 7px;
+    }
+    .nav-botonRuta {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .nav-botonRuta:active {
+        scale: 0.97;
+        border-radius: 15px;
+    }
 }
